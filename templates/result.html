@@ -59,23 +59,11 @@
     <div class="container">
         <h1>Prediction Result</h1>
         <div class="result">
-            <p>The customer is <span id="prediction"></span> to leave the service.</p>
+            <p>The customer is <span class="{{ prediction }}">
+                {{ prediction }}
+            </span> to leave the service.</p>
         </div>
         <a href="/" class="btn">Make Another Prediction</a>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const prediction = urlParams.get('prediction');
-            const predictionSpan = document.getElementById('prediction');
-            if (prediction === '1') {
-                predictionSpan.textContent = 'likely';
-                predictionSpan.classList.add('likely');
-            } else {
-                predictionSpan.textContent = 'unlikely';
-                predictionSpan.classList.add('unlikely');
-            }
-        });
-    </script>
 </body>
 </html>
